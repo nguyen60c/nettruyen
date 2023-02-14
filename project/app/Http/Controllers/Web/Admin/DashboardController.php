@@ -11,8 +11,12 @@ use Spatie\Permission\Models\Role;
 
 class DashboardController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
-        return Auth::user();
         return view('Admin.dashboard');
     }
 }
